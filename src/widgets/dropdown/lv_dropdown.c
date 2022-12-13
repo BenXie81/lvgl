@@ -408,7 +408,7 @@ int32_t lv_dropdown_get_option_index(lv_obj_t * obj, const char * option)
     while(start[0] != '\0') {
         for(char_i = 0; (start[char_i] != '\n') && (start[char_i] != '\0'); char_i++);
 
-        if(memcmp(start, option, LV_MIN(strlen(option), char_i)) == 0) return opt_i;
+        if(strlen(option) == char_i && memcmp(start, option, char_i) == 0) return opt_i;
         start = &start[char_i];
         if(start[0] == '\n') start++;
         opt_i++;
